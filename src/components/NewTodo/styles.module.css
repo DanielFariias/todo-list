@@ -1,0 +1,30 @@
+.form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.form input {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--gray-500);
+  border: none;
+  border-radius: 8px;
+  color: var(--gray-100);
+}
+
+.form button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  font-weight: bold;
+  color: var(--gray-100);
+  background-color: var(--blue-dark);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.form button svg {
+  line-height: 0;
+}

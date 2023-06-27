@@ -1,0 +1,25 @@
+.infoTodo {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.infoTodo span {
+  font-weight: bold;
+  color: var(--blue);
+  font-size: 14px;
+}
+
+.infoTodo span:last-child {
+  color: var(--purple);
+}
+
+.infoTodo span small {
+  margin-left: 0.5rem;
+  background-color: var(--gray-400);
+  padding: 0.25rem 0.5rem;
+  border-radius: 16px;
+  color: var(--gray-200);
+  font-size: 12px;
+  font-weight: bold;
+}

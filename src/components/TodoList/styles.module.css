@@ -1,0 +1,67 @@
+.todoList {
+  margin-top: 1.5rem;
+}
+
+.todoList .todo {
+  background-color: var(--gray-500);
+  border: 2px solid var(--gray-400);
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.875rem;
+  color: var(--gray-100);
+  cursor: pointer;
+  width: 100%;
+}
+
+.todoList .todo + .todo {
+  margin-top: 0.875rem;
+}
+
+.todoList .todo span {
+  max-width: 35rem;
+  text-align: left;
+}
+
+.todoList .todo .trash {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: var(--gray-100);
+  transition: all 0.2s ease-in-out;
+}
+
+.todoList .todo .trash:hover {
+  color: var(--danger);
+}
+
+.todoList .todo .checkbox {
+  width: 20px;
+  height: 18px;
+  border-radius: 100%;
+  border: 2px solid var(--blue);
+}
+
+.todoList .todo .checkboxChecked {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 18px;
+  border-radius: 100%;
+  border: 2px solid var(--purple);
+  background-color: var(--purple);
+  text-decoration: dotted;
+}
+
+.todoList .todo .todoCompleted {
+  text-decoration: line-through;
+}
+
+.todoList .todo .checkboxChecked:before {
+  content: "✔";
+  color: white;
+  font-size: 12px;
+}
