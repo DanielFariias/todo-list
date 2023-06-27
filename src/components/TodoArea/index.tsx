@@ -6,7 +6,7 @@ import styles from './styles.module.css'
 import { useState } from 'react'
 
 export interface ITodo {
-  id: number
+  id: string
   title: string
   isCompleted: boolean
 }

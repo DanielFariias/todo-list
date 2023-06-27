@@ -1,4 +1,5 @@
 import { PlusCircle } from '@phosphor-icons/react'
+import { v4 as uuidv4 } from 'uuid'
 
 import styles from './styles.module.css'
 import { ITodo } from '../TodoArea'
@@ -19,7 +20,7 @@ export default function NewTodo({ onNewTodo }: INewTodoProps) {
     event.preventDefault()
 
     const newTodo: ITodo = {
-      id: Math.random(),
+      id: uuidv4(),
       title: todoText,
       isCompleted: false,
     }
