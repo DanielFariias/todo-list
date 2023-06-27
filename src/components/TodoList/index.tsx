@@ -1,32 +1,54 @@
 import { Trash } from '@phosphor-icons/react'
 import styles from './styles.module.css'
+import { ITodo } from '../TodoArea'
 
-export default function TodoList() {
+interface ITodoListProps {
+  todos: ITodo[]
+  onToggleTask: (id: string) => void
+  onDeleteTask: (id: string) => void
+}
+
+export default function TodoList({
+  todos,
+  onToggleTask,
+  onDeleteTask,
+}: ITodoListProps) {
+  function handleToggleCompleteTask(id: string) {
+    onToggleTask(id)
+  }
+
+  function handleDeleteTask(event: any, id: string) {
+    event.stopPropagation()
+    onDeleteTask(id)
+  }
+
   return (
     <div className={styles.todoList}>
-      <button className={styles.todo}>
-        <div className={styles.checkboxChecked} />
-        <span className={styles.todoCompleted}>
-          Integer urna interdum massa libero auctor neque turpis turpis semper.
-          Duis vel sed fames integer.
-        </span>
+      {todos.map((todo) => (
+        <button
+          className={styles.todo}
+          key={todo.id}
+          type="button"
+          onClick={() => handleToggleCompleteTask(todo.id)}
+        >
+          <div
+            className={
+              todo.isCompleted ? styles.checkboxChecked : styles.checkbox
+            }
+          />
+          <span className={todo.isCompleted ? styles.todoCompleted : ''}>
+            {todo.title}
+          </span>
 
-        <div className={styles.trash}>
-          <Trash size={24} />
-        </div>
-      </button>
-
-      <button className={styles.todo}>
-        <div className={styles.checkbox} />
-        <span>
-          Integer urna interdum massa libero auctor neque turpis turpis semper.
-          Duis vel sed fames integer.
-        </span>
-
-        <div className={styles.trash}>
-          <Trash size={24} />
-        </div>
-      </button>
+          <div
+            className={styles.trash}
+            onClick={(e) => handleDeleteTask(e, todo.id)}
+            tabIndex={0}
+          >
+            <Trash size={20} />
+          </div>
+        </button>
+      ))}
     </div>
   )
 }

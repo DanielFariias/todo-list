@@ -18,14 +18,44 @@ export default function TodoArea() {
     setTodos((prevState) => [...prevState, newTodo])
   }
 
-  console.log(todos)
+  function handleToggleCompleteTask(id: string) {
+    setTodos((prevState) => {
+      return prevState.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            isCompleted: !todo.isCompleted,
+          }
+        }
+
+        return todo
+      })
+    })
+  }
+
+  function handleDeleteTask(id: string) {
+    setTodos((prevState) => {
+      return prevState.filter((todo) => {
+        if (todo.id === id) {
+          return false
+        }
+
+        return true
+      })
+    })
+  }
+
   return (
     <main className={styles.wrapper}>
       <NewTodo onNewTodo={handleAddNewTodo} />
 
-      <InfoTodo />
+      <InfoTodo todos={todos} />
 
-      <TodoList />
+      <TodoList
+        todos={todos}
+        onToggleTask={handleToggleCompleteTask}
+        onDeleteTask={handleDeleteTask}
+      />
     </main>
   )
 }

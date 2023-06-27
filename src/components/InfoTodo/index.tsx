@@ -1,14 +1,26 @@
+import { ITodo } from '../TodoArea'
 import styles from './styles.module.css'
 
-export default function InfoTodo() {
+interface IInfoTodo {
+  todos: ITodo[]
+}
+
+export default function InfoTodo({ todos }: IInfoTodo) {
+  const hasTodos = todos.length > 0
+
+  const todosCompleted = todos.filter((todo) => todo.isCompleted)
+
   return (
     <div className={styles.infoTodo}>
       <span>
-        Tarefas criadas <small>5</small>
+        Tarefas criadas <small>{todos.length}</small>
       </span>
 
       <span>
-        Concluídas <small>2 de 5</small>
+        Concluídas
+        <small>
+          {hasTodos ? `${todosCompleted.length} de ${todos.length}` : 0}
+        </small>
       </span>
     </div>
   )

@@ -22,13 +22,18 @@
 
 .todoList .todo span {
   max-width: 35rem;
+  width: 35rem;
   text-align: left;
+  font-size: 0.9rem;
+  color: var(--gray-100);
+  word-wrap: break-word;
 }
 
 .todoList .todo .trash {
   cursor: pointer;
   background-color: transparent;
   border: none;
+  line-height: 0;
   color: var(--gray-100);
   transition: all 0.2s ease-in-out;
 }
@@ -39,7 +44,7 @@
 
 .todoList .todo .checkbox {
   width: 20px;
-  height: 18px;
+  height: 20px;
   border-radius: 100%;
   border: 2px solid var(--blue);
 }
@@ -49,7 +54,7 @@
   align-items: center;
   justify-content: center;
   width: 20px;
-  height: 18px;
+  height: 20px;
   border-radius: 100%;
   border: 2px solid var(--purple);
   background-color: var(--purple);
