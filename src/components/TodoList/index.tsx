@@ -2,6 +2,8 @@ import { Trash } from '@phosphor-icons/react'
 import styles from './styles.module.css'
 import { ITodo } from '../TodoArea'
 
+import clipboard from '../../assets/clipboard.svg'
+
 interface ITodoListProps {
   todos: ITodo[]
   onToggleTask: (id: string) => void
@@ -49,6 +51,16 @@ export default function TodoList({
           </div>
         </button>
       ))}
+
+      {!todos.length && (
+        <div className={styles.emptyList}>
+          <img src={clipboard} alt="icone de clipboard" />
+          <p>
+            Você ainda não tem tarefas cadastradas
+            <span>Crie tarefas e organize seus itens a fazer</span>
+          </p>
+        </div>
+      )}
     </div>
   )
 }
