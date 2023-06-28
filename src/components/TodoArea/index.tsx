@@ -3,7 +3,7 @@ import InfoTodo from '../InfoTodo'
 import TodoList from '../TodoList'
 
 import styles from './styles.module.css'
-import { useState } from 'react'
+import useLocalStorage from '../../hooks/useLocalStorage'
 
 export interface ITodo {
   id: string
@@ -12,7 +12,7 @@ export interface ITodo {
 }
 
 export default function TodoArea() {
-  const [todos, setTodos] = useState<ITodo[]>([])
+  const [todos, setTodos] = useLocalStorage<ITodo[]>('todos', [])
 
   function handleAddNewTodo(newTodo: ITodo) {
     setTodos((prevState) => [...prevState, newTodo])
